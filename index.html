@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kết Quả Trận Đấu NBA</title>
-    <link rel="stylesheet" href="style.css"> <!-- Liên kết file CSS -->
+    <title>NBA Player Rankings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
 </head>
 <body>
 
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">🏀 NBA Stats</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container">
-        <h1>🏀 Kết Quả Trận Đấu NBA</h1>
-        <button onclick="fetchNBAGameResults()">Lấy Kết Quả</button>
-        <div id="game-list"></div>
+        <h1>🏀 NBA Player Stats 🏆</h1>
+        <input type="text" id="searchInput" placeholder="Search players...">
+        <button onclick="fetchNBAPlayers()">Fetch Player Data</button>
+        <div id="player-list"></div>
     </div>
 
-    <script src="script.js"></script> <!-- Liên kết file JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

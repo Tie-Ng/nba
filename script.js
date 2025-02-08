@@ -1,40 +1,59 @@
-async function fetchNBAGameResults() {
-    const apiKey = '45638843-d528-49ac-a5b5-0ce050020863';
-    const apiUrl = 'https://api-basketball.p.rapidapi.com/games';
+
+
+async function fetchNBAPlayers() {
+    const apiKey = '9145376e-18b8-4f11-aa88-e87fb116ea88'; // Replace with your actual API key
+    const apiUrl = `https://api.balldontlie.io/v1/players?per_page=35`;
 
     try {
         const response = await fetch(apiUrl, {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': apiKey,
-                'X-RapidAPI-Host': 'api-basketball.p.rapidapi.com'
+                'Authorization': apiKey,
             }
         });
 
-        if (!response.ok) throw new Error('Error');
+        if (!response.ok) throw new Error('Error fetching data');
 
         const data = await response.json();
-        const gameListContainer = document.getElementById('game-list');
-        gameListContainer.innerHTML = ''; // Xóa nội dung cũ
+        const playerListContainer = document.getElementById('player-list');
+        playerListContainer.innerHTML = '';
 
-        if (!data.response || data.response.length === 0) {
-            gameListContainer.innerHTML = "<p class='no-game'>No match</p>";
-            return;
-        }
+        const players = data.data.slice(0, 35); // Correctly fetch top 10 players
 
-        data.response.forEach(game => {
-            const gameItem = document.createElement('div');
-            gameItem.classList.add('game-item');
-            gameItem.innerHTML = `
-                <h3>${game.teams.home.name} 🆚 ${game.teams.away.name}</h3>
-                <p class="score">🏆 ${game.scores.home.total || 'Chưa có'} - ${game.scores.away.total || 'Chưa có'} 🏆</p>
-                <p>📅 Ngày: ${new Date(game.date).toLocaleString()}</p>
-                <p>⏳ Trạng thái: ${game.status.long}</p>
+        players.forEach((player, index) => {
+            const playerCard = document.createElement('div');
+            playerCard.classList.add('player-card');
+
+            playerCard.innerHTML = `
+                <h2 class="rank">#${index + 1} - ${player.first_name} ${player.last_name}</h2>
+                <p class="stats">🏀 Team: ${player.team.full_name}</p>
+                <p class="stats">📏 Height: ${player.height}</p>
+                <p class="stats">⚖️ Weight: ${player.weight + " lbs"}</p>
+                <p class="stats">📍 Position: ${player.position || 'N/A'}</p>
             `;
-            gameListContainer.appendChild(gameItem);
+
+            playerListContainer.appendChild(playerCard);
         });
+
+
+
+        document.getElementById("searchInput").addEventListener("keyup", function () {
+            const searchQuery = this.value.toLowerCase();
+            const filteredPlayers = playersData.filter(player =>
+                `${player.first_name} ${player.last_name}`.toLowerCase().includes(searchQuery)
+            );
+            displayPlayers(filteredPlayers);
+        });
+
+        fetchNBAPlayers();
+    
+
     } catch (error) {
-        console.error(error);
-        document.getElementById('game-list').innerHTML = "<p class='error'>Lỗi tải dữ liệu.</p>";
+        console.error('Error:', error);
+        document.getElementById('player-list').innerHTML = "Error loading player rankings. Please try again.";
     }
 }
+
+
+
+
