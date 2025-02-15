@@ -26,7 +26,7 @@ async function fetchNBAGames() {
 
             gameCard.innerHTML = `
             <div class="container">
-                <h2>${game.home_team.full_name}  vs ${game.visitor_team.full_name}</h2>
+                <h2>${game.home_team.full_name}  🆚 ${game.visitor_team.full_name}</h2>
                 <p><strong>Date:</strong> ${gameDate}</p>
                 <p><strong>Score:</strong> ${game.home_team_score} - ${game.visitor_team_score}</p>
                 <a class="details-link" href="details.html?id=${game.id}">View Details</a>
