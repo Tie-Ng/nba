@@ -35,7 +35,6 @@ async function fetchNBAGames() {
 
             gameListContainer.appendChild(gameCard);
         });
-
     } catch (error) {
         console.error("Error:", error);
         document.getElementById("game-list").innerHTML = "Failed to load NBA games.";

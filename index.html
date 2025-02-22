@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NBA Player Details</title>
-    <link rel="stylesheet" href="/CSS/stylefordetails.css">
+    <title>NBA Player Rankings</title>
+    <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
-    
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">🏀 NBA Stats</div>
         <ul class="nav-links">
             <li><a href="/HTML/index.html">Home</a></li>
-            <li><a href="/HTML/games.html">Game</a></li>
+            <li><a href="/HTML/games.html">Games</a></li>
             <li><a href="/HTML/details.html">Contact</a></li>
         </ul>
     </nav>
+
+    <!-- Main Content -->
     <div class="container">
-        <div id="player-div"></div>
+        <h1>🏀 NBA Player Stats 🏆</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search NBA players...">
+            </div>
+        <div id="player-list"></div>
     </div>
-    <script src="/JS/details.js"></script>
+
+    <script src="/JS/main.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 async function fetchNBAPlayers() {
     const apiKey = '9145376e-18b8-4f11-aa88-e87fb116ea88'; // Replace with your actual API key
-    const apiUrl = `https://api.balldontlie.io/v1/players?per_page=35`;
+    const apiUrl = `https://api.balldontlie.io/v1/players?per_page=50`;
 
     try {
         const response = await fetch(apiUrl, {
@@ -15,7 +15,7 @@ async function fetchNBAPlayers() {
         if (!response.ok) throw new Error('Error fetching data');
 
         const data = await response.json();
-        const players = data.data.slice(0, 35); // Get top 35 players
+        const players = data.data.slice(0, 50); // Get top 35 players
 
         displayPlayers(players);
 
