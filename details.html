@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBA Player Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/ex.css">
+    <link rel="stylesheet" href="./css/news.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/stylefordetails.css">
 </head>
 <body>
@@ -12,14 +16,39 @@
     <nav class="navbar">
         <div class="logo">🏀 NBA Stats</div>
         <ul class="nav-links">
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./index.html">Players</a></li>
             <li><a href="./games.html">Games</a></li>
-            <li><a href="./details.html">Contact</a></li>
+            <li><a href="./news.html">News</a></li>
+            <li><a href="./shoes.html">Shoes</a></li>
+            <li><a href="./contact.html">Contact</a></li>
         </ul>
     </nav>
+    <div class="relative h-64">
+        <img src="https://cdn.nba.com/manage/2023/02/IMG_9200-scaled.jpg" alt="NBA Background" 
+             class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <div class="relative z-10 flex items-center justify-center h-full text-white">
+          <h2 class="text-4xl font-bold">Players</h2>
+        </div>
+      </div>
     <div class="container">
         <div id="player-div"></div>
     </div>
+    <footer>
+        <footer style="background-color: #1D428A; color: white; padding: 20px; text-align: center;">
+            <div style="margin-bottom: 10px;">
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Home</a>
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Teams</a>
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Schedule</a>
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Standings</a>
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Contact</a>
+            </div>
+            <div style="font-size: 14px;">
+              © 2025 NBA Media Ventures, LLC. All rights reserved.
+            </div>
+          </footer>
+        <p>&copy; 2025 NBA News Hub. All rights reserved.</p>
+      </footer>
     <script src="./js/details.js"></script>
 </body>
 </html>

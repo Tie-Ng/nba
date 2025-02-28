@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoes</title>
+    <link rel="stylesheet" href="./CSS/ex.css" />
+    <link rel="stylesheet" href="./CSS/news.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/stylefordetails.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">🏀 NBA Stats</div>
+      <ul class="nav-links">
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="./index.html">Players</a></li>
+        <li><a href="./games.html">Games</a></li>
+        <li><a href="./news.html">News</a></li>
+        <li><a href="./shoes.html">Shoes</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <h1>Shoes</h1>
+    <div class="container-shoes">
+      <div class="product">
+        <img src="https://static.nike.com/a/images/w_1280,q_auto,f_auto/a70111b4-3d64-4d15-883f-f5f6a5bf33e8/kobe-6-protro-green-apple-release-date.jpg" alt="Giày 1" />
+        <h3>Nike Kobe 6 Protro</h3>
+        <h5>"Green Apple"</h5>
+        <p>Price: 687$</p>
+        <button>Add to cart</button>
+      </div>
+      <div class="product">
+        <img src="https://static.nike.com/a/images/w_1280,q_auto,f_auto/61b2e2e7-95ee-48ce-a667-e5e39f72649a/kobe-v-protro-5x-champ-release-date.jpg" alt="Giày 1" />
+        <h3>Nike Kobe 5 Protro</h3>
+        <h5>"5x Champ"</h5>
+        <p>Price: 501$</p>
+        <button>Add to cart</button>
+      </div>
+      <div class="product">
+        <img src="https://static.nike.com/a/images/w_1280,q_auto,f_auto/vk85k7xmiycnyna64zfl/kobe-iv-protro-wizenard-release-date.jpg" alt="Giày 1" />
+        <h3>Nike Kobe 4 Protro</h3>
+        <h5>"Wizenard"</h5>
+        <p>Price: 419$</p>
+        <button>Add to cart</button>
+      </div>
+    </div>
+
+    <!-- Cart Section -->
+    <h2>Your Cart</h2>
+    <div id="cart-items" style="border: 1px solid #ccc; padding: 10px;">
+      <p>Your cart is empty.</p>
+    </div>
+
+    <footer>
+      <footer style="background-color: #1d428a; color: white; padding: 20px; text-align: center;">
+        <div style="margin-bottom: 10px">
+          <a href="#" style="color: white; margin: 0 10px; text-decoration: none">Home</a>
+          <a href="#" style="color: white; margin: 0 10px; text-decoration: none">Teams</a>
+          <a href="#" style="color: white; margin: 0 10px; text-decoration: none">Schedule</a>
+          <a href="#" style="color: white; margin: 0 10px; text-decoration: none">Standings</a>
+          <a href="#" style="color: white; margin: 0 10px; text-decoration: none">Contact</a>
+        </div>
+        <div style="font-size: 14px">© 2025 NBA Media Ventures, LLC. All rights reserved.</div>
+      </footer>
+      <p>&copy; 2025 NBA News Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for cart functionality -->
+    <script>
+      let cart = [];
+
+      function addToCart(name, price) {
+        const shoe = { name, price };
+        cart.push(shoe);
+        alert(`${name} has been added to the cart!`);
+        displayCart();
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        displayCart();
+      }
+
+      function displayCart() {
+        const cartContainer = document.getElementById('cart-items');
+        cartContainer.innerHTML = '';
+
+        if (cart.length === 0) {
+          cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+        } else {
+          cart.forEach((shoe, index) => {
+            const shoeItem = document.createElement('div');
+            shoeItem.className = 'cart-item';
+            shoeItem.innerHTML = `
+              <p>${shoe.name} - $${shoe.price}</p>
+              <button onclick="removeFromCart(${index})">Remove</button>
+            `;
+            cartContainer.appendChild(shoeItem);
+          });
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const addToCartButtons = document.querySelectorAll('.product button');
+
+        addToCartButtons.forEach((button) => {
+          button.addEventListener('click', (event) => {
+            const product = event.target.closest('.product');
+            const name = product.querySelector('h3').textContent;
+            const priceText = product.querySelector('p').textContent;
+            const price = parseFloat(priceText.replace('Price: ', '').replace('$', ''));
+
+            addToCart(name, price);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

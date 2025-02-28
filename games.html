@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBA Player Matches</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/ex.css">
+    <link rel="stylesheet" href="./css/news.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/stylefordetails.css">
 </head>
 <body>
 
@@ -12,18 +16,49 @@
     <nav class="navbar">
         <div class="logo">🏀 NBA Stats</div>
         <ul class="nav-links">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./games.html">Games</a></li>
-            <li><a href="./details.html">Contact</a></li>
+          <li><a href="./home.html">Home</a></li>
+          <li><a href="./index.html">Players</a></li>
+          <li><a href="./games.html">Games</a></li>
+          <li><a href="./news.html">News</a></li>
+          <li><a href="./shoes.html">Shoes</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+            
         </ul>
     </nav>
 
     <!-- Main Content -->
+    <div class="relative h-64">
+        <img src="https://www.sportico.com/wp-content/uploads/2024/11/GettyImages-1784865654-e1730495172421.jpg?w=1280&h=720&crop=1" alt="NBA Background" 
+             class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <div class="relative z-10 flex items-center justify-center h-full text-white">
+          <h2 class="text-4xl font-bold">Games</h2>
+        </div>
+      </div>
     <div class="container">
         <h1>🏀 NBA Games</h1>
+        <div style="overflow: hidden; white-space: nowrap; width: 100%; padding: 10px 0; background: #13274F;">
+          <marquee behavior="scroll" direction="left" scrollamount="5">
+            <a href="./shoes.html" style="color: white; text-decoration: none; font-weight: bold;">🏀 Buy shoes at the most reasonable price!</a>
+          </marquee>
+        </div>
         
         <div id="game-list"></div>
     </div>
+    <footer>
+        <footer style="background-color: #1D428A; color: white; padding: 20px; text-align: center;">
+            <div style="margin-bottom: 10px;">
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Home</a>
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Teams</a>
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Schedule</a>
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Standings</a>
+              <a href="#" style="color: white; margin: 0 10px; text-decoration: none;">Contact</a>
+            </div>
+            <div style="font-size: 14px;">
+              © 2025 NBA Media Ventures, LLC. All rights reserved.
+            </div>
+          </footer>
+        <p>&copy; 2025 NBA News Hub. All rights reserved.</p>
+      </footer>
 
     <script src="./js/games.js"></script>
 </body>
